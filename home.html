@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>iPhone 17 Pro Max | Daudi Store</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; -webkit-tap-highlight-color: transparent; }
+        body { background-color: #000; color: white; overflow-x: hidden; }
+        
+        .page { display: none; opacity: 0; transition: opacity 0.5s ease; min-height: 100vh; width: 100%; }
+        .page.active { display: flex; opacity: 1; }
+
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        
+        .glass-btn {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-active {
+            background: rgba(59, 130, 246, 0.15) !important;
+            border-color: #3b82f6 !important;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.5), inset 0 0 10px rgba(59, 130, 246, 0.3);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        /* WhatsApp Green Order Button */
+        .order-btn-green {
+            background: #25D366;
+            color: white;
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
+            animation: greenGlowPulse 2s infinite;
+        }
+
+        @keyframes greenGlowPulse {
+            0% { box-shadow: 0 0 5px rgba(37, 211, 102, 0.4); }
+            50% { box-shadow: 0 0 25px rgba(37, 211, 102, 0.7); }
+            100% { box-shadow: 0 0 5px rgba(37, 211, 102, 0.4); }
+        }
+
+        .pulse-red { animation: pulse-red 2s infinite; }
+        @keyframes pulse-red { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+
+        #loader { position: fixed; inset: 0; background: #000; z-index: 9999; display: flex; justify-content: center; align-items: center; }
+        .spinner { width: 50px; height: 50px; border: 3px solid rgba(255,255,255,0.1); border-top-color: #3b82f6; border-radius: 50%; animation: spin 1s linear infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
+
+    <div id="loader"><div class="spinner"></div></div>
+
+    <div id="bg-container" class="fixed inset-0 z-0">
+        <div class="absolute inset-0 bg-black/70 z-10"></div>
+        <video autoplay muted loop playsinline class="w-full h-full object-cover">
+            <source src="images/iphone17(review).mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <nav class="fixed top-0 w-full z-[100] glass py-4 px-6 md:px-12 flex justify-between items-center border-b border-white/5">
+        <div class="text-xl font-black tracking-tighter cursor-pointer" onclick="showPage('home')">
+            DAUDI <span class="text-blue-500">STORE</span>
+        </div>
+        <div class="hidden md:flex space-x-8 text-[11px] font-bold uppercase tracking-widest">
+            <button onclick="showPage('home')" class="hover:text-blue-400 transition">Home</button>
+            <button onclick="showPage('catalog')" class="hover:text-blue-400 transition">Catalog</button>
+            <button onclick="showPage('contact')" class="hover:text-blue-400 transition">Contact</button>
+        </div>
+        <button onclick="toggleMobileMenu()" class="md:hidden text-2xl"><i class="fas fa-bars"></i></button>
+    </nav>
+
+    <div id="mobile-menu" class="hidden fixed inset-0 z-[110] bg-black flex flex-col items-center justify-center space-y-10 text-2xl font-bold">
+        <button onclick="showPage('home')">HOME</button>
+        <button onclick="showPage('catalog')">CATALOG</button>
+        <button onclick="showPage('contact')">CONTACT</button>
+        <button onclick="toggleMobileMenu()" class="text-sm text-white/40 border border-white/20 px-6 py-2 rounded-full">CLOSE</button>
+    </div>
+
+    <section id="home" class="page active relative z-10 flex-col items-center justify-center text-center px-6">
+        <h2 class="text-white/60 text-sm uppercase tracking-[0.4em] mb-4">Innovation in your hand</h2>
+        <h1 class="text-5xl md:text-8xl font-black mb-10 tracking-tighter">iPhone 17 Pro Max</h1>
+        <button onclick="showPage('catalog')" class="bg-blue-600 px-12 py-5 rounded-full font-bold tracking-widest text-sm transition-transform active:scale-95">
+            SHOP NOW <i class="fas fa-arrow-right ml-2"></i>
+        </button>
+    </section>
+
+    <section id="catalog" class="page relative z-10 pt-24 pb-12 px-4 md:px-12 bg-black">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-start mt-10">
+            
+            <div class="space-y-6">
+                <div class="glass py-3 px-6 rounded-2xl border-blue-500/30 flex items-center justify-center space-x-3">
+                    <i class="fas fa-truck-fast text-blue-500"></i>
+                    <span class="text-[11px] font-bold uppercase tracking-[0.2em] text-blue-400">Free Delivery within Nairobi CBD</span>
+                </div>
+
+                <div class="glass rounded-[40px] p-8 flex justify-center items-center h-[400px] md:h-[600px]">
+                    <img id="mainImage" src="images/iphone17(1).jpeg" alt="iPhone 17" class="h-full object-contain transition-all duration-500">
+                </div>
+                <div class="grid grid-cols-4 gap-4">
+                    <img src="images/iphone17(1).jpeg" onclick="updateGallery(this)" class="glass p-2 h-20 w-full object-contain rounded-2xl cursor-pointer border-blue-500 border-2">
+                    <img src="images/iphone17(2).jpeg" onclick="updateGallery(this)" class="glass p-2 h-20 w-full object-contain rounded-2xl cursor-pointer border-2 border-transparent transition">
+                    <img src="images/iphone17(3).jpeg" onclick="updateGallery(this)" class="glass p-2 h-20 w-full object-contain rounded-2xl cursor-pointer border-2 border-transparent transition">
+                    <img src="images/iphone17(4).jpeg" onclick="updateGallery(this)" class="glass p-2 h-20 w-full object-contain rounded-2xl cursor-pointer border-2 border-transparent transition">
+                </div>
+            </div>
+
+            <div class="glass rounded-[40px] p-8 md:p-12">
+                <div class="mb-6 flex items-center space-x-2">
+                    <span class="w-2 h-2 bg-red-500 rounded-full pulse-red"></span>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-red-400">Only 4 units left in stock</span>
+                </div>
+
+                <h2 class="text-4xl md:text-6xl font-black tracking-tighter mb-4">iPhone 17 Pro Max</h2>
+                <div id="price-tag" class="text-3xl md:text-5xl font-bold text-blue-500 mb-10">KSh 174,000</div>
+
+                <div class="space-y-8">
+                    <div>
+                        <p class="text-[10px] uppercase tracking-widest text-white/30 mb-4 font-bold">Internal Storage</p>
+                        <div class="grid grid-cols-3 gap-3">
+                            <button onclick="updateConfig(this, 'storage', '256GB', 174000)" class="storage-btn glass-btn btn-active py-4 rounded-2xl text-xs font-bold">256GB</button>
+                            <button onclick="updateConfig(this, 'storage', '512GB', 215000)" class="storage-btn glass-btn py-4 rounded-2xl text-xs font-bold">512GB</button>
+                            <button onclick="updateConfig(this, 'storage', '1TB', 275000)" class="storage-btn glass-btn py-4 rounded-2xl text-xs font-bold">1TB</button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="text-[10px] uppercase tracking-widest text-white/30 mb-4 font-bold">Connectivity</p>
+                        <div class="grid grid-cols-2 gap-3">
+                            <button onclick="updateConfig(this, 'sim', 'eSIM Only')" class="sim-btn glass-btn btn-active py-4 rounded-2xl text-xs font-bold">eSIM Only</button>
+                            <button onclick="updateConfig(this, 'sim', 'Physical + eSIM')" class="sim-btn glass-btn py-4 rounded-2xl text-xs font-bold">Physical + eSIM</button>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="buyNow()" class="w-full order-btn-green mt-12 py-6 rounded-3xl font-black text-lg tracking-widest uppercase transition-all active:scale-95 flex items-center justify-center space-x-3">
+                    <i class="fab fa-whatsapp text-2xl"></i>
+                    <span>ORDER VIA WHATSAPP</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="page relative z-10 flex-col items-center justify-center text-center px-6">
+        <div class="glass p-12 md:p-24 rounded-[50px] max-w-2xl w-full">
+            <h2 class="text-5xl md:text-7xl font-black mb-6">Contact</h2>
+            <p class="text-white/40 mb-8 uppercase tracking-[0.3em]">Accra Road, Nairobi CBD</p>
+            <a href="tel:0740438389" class="text-3xl md:text-5xl font-bold text-blue-500 hover:text-blue-400 transition">0740 438 389</a>
+        </div>
+    </section>
+
+    <script>
+        let config = { storage: '256GB', sim: 'eSIM Only', price: '174,000' };
+
+        window.onload = () => {
+            setTimeout(() => document.getElementById('loader').style.display = 'none', 1000);
+        };
+
+        function showPage(id) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            document.getElementById('bg-container').style.display = (id === 'home') ? 'block' : 'none';
+            document.getElementById('mobile-menu').classList.add('hidden');
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+
+        function updateGallery(img) {
+            const main = document.getElementById('mainImage');
+            main.style.opacity = '0.3';
+            setTimeout(() => {
+                main.src = img.src;
+                main.style.opacity = '1';
+            }, 250);
+            img.parentElement.querySelectorAll('img').forEach(i => {
+                i.classList.remove('border-blue-500');
+                i.classList.add('border-transparent');
+            });
+            img.classList.add('border-blue-500');
+        }
+
+        function updateConfig(btn, type, value, price) {
+            if (type === 'storage') {
+                config.storage = value;
+                config.price = price.toLocaleString();
+                document.getElementById('price-tag').innerText = `KSh ${config.price}`;
+                document.querySelectorAll('.storage-btn').forEach(b => b.classList.remove('btn-active'));
+            } else {
+                config.sim = value;
+                document.querySelectorAll('.sim-btn').forEach(b => b.classList.remove('btn-active'));
+            }
+            btn.classList.add('btn-active');
+        }
+
+        function buyNow() {
+            const orderId = Math.floor(1000 + Math.random() * 9000);
+            const date = new Date().toLocaleDateString();
+            
+            // Structured WhatsApp Receipt
+            const message = `🛍️ *NEW ORDER RECEIPT* #DS-${orderId}\n` +
+                            `--------------------------\n` +
+                            `*Product:* iPhone 17 Pro Max\n` +
+                            `*Storage:* ${config.storage}\n` +
+                            `*Connectivity:* ${config.sim}\n` +
+                            `--------------------------\n` +
+                            `*Total Price:* KSh ${config.price}\n` +
+                            `*Date:* ${date}\n` +
+                            `*Status:* Pending Confirmation\n` +
+                            `--------------------------\n` +
+                            `Hi Daudi Store, I would like to place an order for this unit. Please confirm availability and delivery details.`;
+
+            const waUrl = `https://wa.me/254740438389?text=${encodeURIComponent(message)}`;
+            window.open(waUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
