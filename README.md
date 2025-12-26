@@ -1,2 +1,2 @@
-# DAUDI-4-IPHONES
-Official website for  DAUDI IPHONES KENYA
+# THURSDAY-4-IPHONES
+Official website for  THURSDAY IPHONES KENYA
